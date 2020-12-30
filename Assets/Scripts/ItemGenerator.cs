@@ -40,41 +40,32 @@ public class ItemGenerator : MonoBehaviour
     void Start()
     {
 
-        //一定の距離ごとにアイテムを生成
+        //一定の距離ごとに障害物発生タイミングの壁を生成
         //ｚ方向に15Mずつ間隔をあける
         for (int i = startPos; i < goalPos; i += 15)
         {
             //どのアイテムを出すかランダムに設定
             int num = Random.Range(1, 11);
 
-            //アイテムを置くZ座標のオフセットをランダムに設定
-            
-
             if (num <= 2)
             {
-                int offsetZ = Random.Range(-5, 6);
-                //wallを生成
+                //もともとコーン4つ生成する部分をwallを生成にしてます
                 GameObject wall = Instantiate(wallPrefab);
-                wall.transform.position = new Vector3(0, wall.transform.position.y, i + offsetZ);
+                wall.transform.position = new Vector3(0, wall.transform.position.y, i);
             }
             else
             {
-                //レーンごとにアイテムを生成
+                //壁の数
                 for (int j = -1; j <= 1; j++)
                 {
-                    //アイテムの種類を決める
-                    int item = Random.Range(1, 11);
+                    //ランダム
+                    int rndm    = Random.Range(1, 11);
 
+                    //前後位置ランダム調整
                     int offsetZ = Random.Range(-5, 6);
 
                     //60%コイン配置：30％車配置：10％何もなし
-                    if (1 <= item && item <= 6)
-                    {
-                        //wallを生成
-                        GameObject wall = Instantiate(wallPrefab);
-                        wall.transform.position = new Vector3(0, wall.transform.position.y, i + offsetZ);
-                    }
-                    else if (7 <= item && item <= 9)
+                    if (1 <= rndm && rndm <= 9)
                     {
                         //wallを生成
                         GameObject wall = Instantiate(wallPrefab);
