@@ -56,7 +56,7 @@ public class GameControllerScript : MonoBehaviour
                 Debug.Log(item);
 
                 //アイテムを置くZ座標のオフセットをランダムに設定
-                int offsetZ = Random.Range(-5, 6);
+                int offsetZ = Random.Range(-3, 5);
 
                 //60%コイン配置：30％車配置：10％何もなし
                 if (item == 2)
