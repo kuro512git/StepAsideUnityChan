@@ -31,9 +31,9 @@ public class DestroyWall : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //障害物に衝突した場合
-        if (other.gameObject.tag != "")
+        if (other.gameObject.tag != "CreateWallTag")
         {
-            //接触したコインのオブジェクトを破棄
+            //接触したオブジェクトを破棄
             Destroy(other.gameObject);
         }
 

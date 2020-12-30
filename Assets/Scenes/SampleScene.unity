@@ -520,12 +520,12 @@ GameObject:
   - component: {fileID: 729301737}
   - component: {fileID: 729301736}
   - component: {fileID: 729301735}
+  - component: {fileID: 729301738}
   - component: {fileID: 729301734}
   - component: {fileID: 729301733}
-  - component: {fileID: 729301738}
   m_Layer: 0
   m_Name: DestroyWall
-  m_TagString: Untagged
+  m_TagString: DestroyWallTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1325,8 +1325,8 @@ MonoBehaviour:
     type: 3}
   conePrefab: {fileID: 3561850442981413399, guid: 71b1bbab5e8a0e84ba114b9b934cad14,
     type: 3}
-  ListObject: {fileID: 0}
-  ObjectList: []
+  wallPrefab: {fileID: 6163896108067704489, guid: 064c3ddbb14622c47b05ea90b8bed7e8,
+    type: 3}
 --- !u!4 &1383986880
 Transform:
   m_ObjectHideFlags: 0
