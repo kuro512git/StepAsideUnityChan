@@ -53,6 +53,8 @@ public class UnityChanController : MonoBehaviour
     private bool isJButtonDown = false;
 
 
+    private GameControllerScript gameController;
+
 
 
     // Start is called before the first frame update
@@ -75,7 +77,9 @@ public class UnityChanController : MonoBehaviour
         //シーンの中のscoreTextオブジェクトを取得
         this.scoreText = GameObject.Find("ScoreText");
 
-
+        gameController = GameObject
+            .FindWithTag("GameController")
+            .GetComponent<GameControllerScript>();
     }
 
     // Update is called once per frame
@@ -161,8 +165,15 @@ public class UnityChanController : MonoBehaviour
     //colisionではなくトリガーとの衝突　OnTriggerEnter
     private void OnTriggerEnter(Collider other)
     {
+        //オブジェクト生成ポイントのcreatewallに衝突したらオブジェクト生成
+        if (other.gameObject.tag == "CreateWallTag")
+        {
+            gameController.CreateObjects(other.gameObject);
+        }
+
+
         //障害物に衝突した場合
-        if(other.gameObject.tag == "CarTag" || other.gameObject.tag == "TrafficConeTag")
+        if (other.gameObject.tag == "CarTag" || other.gameObject.tag == "TrafficConeTag")
         {
             this.isEnd = true;
 
